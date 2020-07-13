@@ -1,38 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: chsparro <chsparro@21-school.ru>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/10 12:22:54 by chsparro          #+#    #+#             */
-/*   Updated: 2020/07/10 13:54:54 by chsparro         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-void	ft_printf(char *format)
+void ft_parse_modifiers
+
+void	ft_output(char spec, va_list ap)
 {
+	if ((spec == 'd') || (spec == 'i'))
+		ft_printnum(va_arg(ap, int), 10);
+	if (spec == 's')
+		ft_putstr(va_arg(ap, char *));
+}
+
+int		ft_printf(char *format, ...)
+{
+	va_list ap;
 	int i;
+	int pos;
 
 	i = 0;
-	while (!(format[i] == '\0'))
+	pos = 0;
+	va_start(ap, format);
+	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
 			write(1, &format[i], 1);
 		else
-		{
-			
-		}
+			ft_output(format[++i], ap);
 		i++;
 	}
-}
-
-int		main(void)
-{
-	ft_printf("12345");
+	// printf("%s\n", va_arg(ap, char *));
+	va_end(ap);
 	return (0);
 }
 
