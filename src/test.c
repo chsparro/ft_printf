@@ -25,13 +25,13 @@ void init_flag(t_flags *flag, int minus, int precision, int width, int zero)
 
 int main(void)
 {
-	t_flags exp;
-	t_flags act;
+	/* t_flags exp; */
+	/* t_flags act; */
 
-	init_flag(&exp, 1, 2, 3, 4);
-	init_flag(&act, 1, 2, 3, 0);
-	printf("%d\n", eq_struct_flags(&exp, &act));
+	/* init_flag(&exp, 1, 2, 3, 4); */
+	/* init_flag(&act, 1, 2, 3, 0); */
+	/* printf("%d\n", eq_struct_flags(&exp, &act)); */
 	/* ft_printf("123%d789%sfgt\n", 0, "abcd"); */
-	/* printf("%1d\n", 12); */
+	printf("%1*d\n", 1, 12);
 	return (0);
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-void ft_parse_modifiers
+//void ft_parse_modifiers
 
 void	ft_output(char spec, va_list ap)
 {
